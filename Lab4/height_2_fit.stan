@@ -18,12 +18,12 @@ model {
     alpha ~ normal(178,20);
     beta ~ lognormal(0,1);
     sigma ~ exponential(0.067);
-    heights ~ normal(mu,sigm);
+    heights ~ normal(mu,sigma);
 
 }
 
 generated quantities {
-    real heights[N];
+    real height[N];
     for (i in 1:N){
         height[i] = normal_rng(mu[i],sigma);
     }
